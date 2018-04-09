@@ -13,4 +13,9 @@ img {
 
 a {
   color: $mainWhite;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
 }

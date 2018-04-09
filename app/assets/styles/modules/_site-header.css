@@ -1,0 +1,87 @@
+.site-header {
+  background-color: $mainBlue;
+  position: fixed;
+  width: 100%;
+  height: 4rem;
+
+  &__nav {
+    & li {
+      display: none;
+    }
+
+    @mixin atSmall {
+      float: right;
+
+      & li {
+        padding-right: 2rem;
+        display: inline-block;
+      }
+    }
+  }
+
+  &__menu-icon {
+    width: 20px;
+    height: 19px;
+    position: absolute;
+    top: 22px;
+    right: 19px;
+    z-index: 10;
+
+    &::before {
+      border-radius: 3px;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 3px;
+      background-color: $mainWhite;
+      transform-origin: 0 0;
+      transition: transform .3s ease-out;
+    }
+
+    &__middle {
+      border-radius: 3px;
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 20px;
+      height: 3px;
+      background-color: $mainWhite;
+      transition: all .2s ease-out;
+      transform-origin: 0 50%;
+    }
+
+    &::after {
+      border-radius: 3px;
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 20px;
+      height: 3px;
+      background-color: $mainWhite;
+      transform-origin: 0 100%;
+      transition: transform .3s ease-out;
+    }
+
+    @mixin atSmall {
+      display: none;
+    }
+  }
+
+  &__menu-icon--close-x {
+    &::before {
+      transform: rotate(45deg) scaleX(1.25);
+    }
+
+    .site-header__menu-icon__middle {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    &::after {
+      transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+    }
+  }
+}
